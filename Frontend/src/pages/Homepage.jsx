@@ -1,7 +1,12 @@
 import React from 'react'
 import { ArrowRight, Heart, Shield, Users, Sparkles, Building2, Stethoscope, Umbrella, Check, Star, Zap } from "lucide-react";
-import { Rotator } from '../components/dynamic-bits';
+import { Rotator,Counter } from '../components/dynamic-bits';
 import { Navbar } from '../components/Navbar';
+import { useReveal } from "../hooks/useReveal";
+import TrustStrip from "./TrustStrip";
+import StatsBand from './StatsBand';
+import Solutions from './Solutions';
+
 
 const Homepage = () => {
   return (
@@ -86,8 +91,15 @@ const Homepage = () => {
           </div>
         </div>
       </section>
+       <TrustStrip />
+       <StatsBand />
+       <Solutions />
+       
     </div>
+
   )
 }
 
-export default Homepage
+export default Homepage;
+
+
