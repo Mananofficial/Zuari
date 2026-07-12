@@ -13,13 +13,13 @@ const Contactpage = () => {
         <div className="mx-auto max-w-7xl px-6 pt-16 pb-24">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
         <div className="animate-reveal">
-        <span className="text-sm font-semibold uppercase tracking-wider text-[color:var(--coral)]">Contact</span>
+        <span className="text-sm font-semibold uppercase tracking-wider text-(--coral)">Contact</span>
 
         <h1 className="mt-3 font-display text-5xl leading-tight md:text-6xl">
         Let's design your program <span className="italic">together</span>.
         </h1>
 
-        <p className="mt-6 max-w-lg text-lg text-[color:var(--muted-foreground)]">
+        <p className="mt-6 max-w-lg text-lg text-(--muted-foreground)">
         Fill in a few details and a Zuari Insurance Brokers Limited advisor will
         reach out within one business day. Prefer email or a phone call? All
         three work.
@@ -40,14 +40,14 @@ const Contactpage = () => {
           return (
             <div
               key={c.l}
-              className="flex items-center gap-4 rounded-2xl border border-[color:var(--border)]/60 bg-[color:var(--card)] p-4 transition hover:-translate-y-0.5 hover:shadow-soft"
+              className="flex items-center gap-4 rounded-2xl border border-(--border)/60 bg-(--card) p-4 transition hover:-translate-y-0.5 hover:shadow-soft"
             >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--coral)]/15 text-[color:var(--coral)]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-(--coral)/15 text-(--coral)">
                 <Icon className="h-5 w-5" />
                 </span>
 
                 <div>
-                <p className="text-xs uppercase tracking-wider text-[color:var(--muted-foreground)]">
+                <p className="text-xs uppercase tracking-wider text-(--muted-foreground)">
                   {c.l}
                 </p>
                 <p className="font-medium">{c.v}</p>
@@ -66,11 +66,11 @@ const Contactpage = () => {
           e.preventDefault();
           setSent(true);
         }}
-        className="rounded-[2rem] border border-[color:var(--border)]/60 bg-[color:var(--card)] p-8 shadow-soft md:p-10"
+        className="rounded-4xl border border-(--border)/60 bg-(--card) p-8 shadow-soft md:p-10"
         >
         {sent ? (
           <div className="flex flex-col items-center justify-center py-16 text-center">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[color:var(--coral)] text-[color:var(--cream)] animate-tick">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-(--coral) text-(--cream) animate-tick">
               <Check className="h-8 w-8" strokeWidth={3} />
             </span>
 
@@ -78,7 +78,7 @@ const Contactpage = () => {
               Thanks, we got it.
             </h3>
 
-            <p className="mt-2 max-w-sm text-[color:var(--muted-foreground)]">
+            <p className="mt-2 max-w-sm text-(--muted-foreground)">
               A Zuari Insurance Brokers Limited advisor will reach out within
               one business day.
             </p>
@@ -87,7 +87,7 @@ const Contactpage = () => {
           <>
             <h2 className="font-display text-3xl">Get a quote</h2>
 
-            <p className="mt-2 text-sm text-[color:var(--muted-foreground)]">
+            <p className="mt-2 text-sm text-(--muted-foreground)">
               We'll tailor it to your team and industry.
             </p>
 
@@ -119,11 +119,11 @@ const Contactpage = () => {
                 />
 
                 <div>
-                  <label className="mb-1.5 block text-xs font-medium text-[color:var(--foreground)]/70">
+                  <label className="mb-1.5 block text-xs font-medium text-(--foreground)/70">
                     Interested in
                   </label>
 
-                  <select className="w-full rounded-xl border border-[color:var(--border)] bg-[color:var(--background)] px-4 py-3 text-sm outline-none transition focus:border-[color:var(--coral)] focus:ring-2 focus:ring-[color:var(--coral)]/30">
+                  <select className="w-full rounded-xl border border-(--border) bg-(--background) px-4 py-3 text-sm outline-none transition focus:border-(--coral) focus:ring-2 focus:ring-(--coral)/30">
                     <option>Group Health</option>
                     <option>Group Term Life</option>
                     <option>Business Insurance</option>
@@ -133,18 +133,18 @@ const Contactpage = () => {
                 </div>
 
                 <div>
-                <label className="mb-1.5 block text-xs font-medium text-[color:var(--foreground)]/70">
+                <label className="mb-1.5 block text-xs font-medium text-(--foreground)/70">
                   Message (optional)
                 </label>
 
                 <textarea
                   rows={3}
                   placeholder="Tell us what you're looking for…"
-                  className="w-full resize-none rounded-xl border border-[color:var(--border)] bg-[color:var(--background)] px-4 py-3 text-sm outline-none transition focus:border-[color:var(--coral)] focus:ring-2 focus:ring-[color:var(--coral)]/30"
+                  className="w-full resize-none rounded-xl border border-(--border) bg-(--background) px-4 py-3 text-sm outline-none transition focus:border-(--coral) focus:ring-2 focus:ring-(--coral)/30"
                 />
                 </div>
 
-                <button className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--primary)] px-6 py-3.5 text-sm font-semibold text-[color:var(--primary-foreground)] shadow-soft transition hover:-translate-y-0.5">
+                <button className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-(--primary) px-6 py-3.5 text-sm font-semibold text-(--primary-foreground) shadow-soft transition hover:-translate-y-0.5">
                 Send request
                 <Send className="h-4 w-4 transition group-hover:translate-x-1" />
                 </button>
