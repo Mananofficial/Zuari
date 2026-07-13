@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "../assets/ZuariLogo.png";
 
 
 const nav = [
@@ -31,7 +32,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center">
           <img
-            src="./assets/hero.png"
+            src={logo}
             alt="Zurai Insurance Brokers"
             className="h-10 w-auto object-contain"
           />
