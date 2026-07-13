@@ -10,7 +10,7 @@ export const createContact = async ({ name, email, phoneNo, message }) => {
         const response = await api.post("/api/contact", { name, email, phoneNo, message });
         return response.data;
     } catch (error) {
-        console.error("Error creating contact:", error);
-        throw error;
+        console.error("Error creating contact:", error.response?.data);
+        throw error.response?.data ;
     }
 }

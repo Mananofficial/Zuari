@@ -10,10 +10,9 @@ export const useContact = () => {
         setLoading(true);
         try {
             const response = await createContact({ name, email, phoneNo, message });
-            return { success: true, data: response.data };
+            return { success: true, data: response };
         } catch (error) {
-            console.error("Error saving contact:", error);
-            return { success: false, error };
+            return { success: false, errors: error };
         } finally {
             setLoading(false);
         }

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router'
 import { ArrowRight, Heart, Shield, Users, Sparkles, Building2, Stethoscope, Umbrella, Check, Star, Zap } from "lucide-react";
 import careImg from "../assets/careImg.jpg";
 import familyImg from "../assets/familyImg.jpg";
@@ -28,6 +28,8 @@ function RevealItem({ children, className = '', delay = 0, offset = 40 }) {
 }
 
 const Homepage = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
   const { ref, visible } = useReveal();
   const stats = [
     { n: 3200, s: "+", label: "Companies insured" },
@@ -99,6 +101,10 @@ const Homepage = () => {
     { q: "We've had four claims this year. Every single one was closed without me lifting a finger.", n: "Ananya Rao", r: "Founder, Kite & Co" },
   ];
 
+  const handleGetQuote = () => {
+    navigate(`/contact?email=${encodeURIComponent(email)}`);
+  };
+
   return (
     <div>
       <Navbar />
@@ -126,25 +132,19 @@ const Homepage = () => {
 
             <form className="mt-8 flex max-w-md flex-col gap-2 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
               <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 required
                 placeholder="Your work email"
                 className="w-full rounded-full border border-(--border) bg-(--background) px-5 py-3.5 text-sm outline-none transition focus:border-(--coral) focus:ring-2 focus:ring-(--coral)/30"
               />
-              <button className="group relative overflow-hidden rounded-full bg-(--primary) px-6 py-3.5 text-sm font-semibold text-(--primary-foreground) shadow-soft transition hover:-translate-y-0.5">
+              <button type="button" onClick={handleGetQuote} className="group relative overflow-hidden rounded-full bg-(--primary) px-6 py-3.5 text-sm font-semibold text-(--primary-foreground) shadow-soft transition hover:-translate-y-0.5">
                 <span className="relative z-10 inline-flex items-center gap-1.5">
                   Get a quote <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
               </button>
             </form>
-            <div className="mt-6 flex items-center gap-4 text-xs text-(--muted-foreground)">
-              <div className="flex -space-x-2">
-                {["#f2a99a", "#7cc4bd", "#f0d78a", "#c4b1ea"].map((c) => (
-                  <span key={c} className="h-7 w-7 rounded-full border-2 border-(--background)" style={{ backgroundColor: c }} />
-                ))}
-              </div>
-              Trusted by 3,000+ HR teams across India
-            </div>
           </div>
 
           <div className="relative">

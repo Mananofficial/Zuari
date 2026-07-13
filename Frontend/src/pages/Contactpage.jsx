@@ -1,34 +1,59 @@
-import React from 'react'
-import { useState } from "react";
+import React, { useEffect, useState } from 'react'
+import { useSearchParams } from "react-router";
 import { Navbar } from '../components/Navbar';
 import { Mail, Phone, MapPin, Send, Check } from "lucide-react";
 import { useContact } from '../hooks/useContact';
 import Footer from '../components/Footer';
+import { toast, Toaster } from 'react-hot-toast';
 
-const Contactpage = () => {
+export const Contactpage = () => {
+  const [searchParams] = useSearchParams();
   const [sent, setSent] = useState(false);
   const { loading, setLoading, handleContactSave } = useContact();
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    email: searchParams.get("email") || "",
     phoneNo: "",
     message: "",
   })
 
+  useEffect(() => {
+    const emailFromHomepage = searchParams.get("email") || "";
+
+    if (emailFromHomepage) {
+      setFormData((current) => ({ ...current, email: emailFromHomepage }));
+    }
+  }, [searchParams]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await handleContactSave(formData);
+
+    if (response?.errors?.errors?.[0]) {
+      toast.error(response.errors?.errors[0].msg);
+      return;
+    }
+
     if (response.success) {
-      console.log("Contact saved successfully:", response.data);
+      toast.success("Contact saved successfully");
       setSent(true);
     } else {
-      console.error("Error saving contact:", response.error);
-      throw new Error("Failed to save contact");
+      toast.error("Error saving contact:");
     }
+  }
+
+  if (loading) {
+    return (
+      <Loading />
+    )
   }
 
   return (
     <main>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+      />
       <Navbar />
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-24">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
@@ -120,6 +145,7 @@ const Contactpage = () => {
                       label="Email"
                       name="email"
                       type="email"
+                      value={formData.email}
                       placeholder="ada@company.com"
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
@@ -134,11 +160,11 @@ const Contactpage = () => {
 
                     <div>
                       <label className="mb-1.5 block text-xs font-medium text-(--foreground)/70">Message (optional)</label>
-                      <textarea 
-                        rows={3} 
+                      <textarea
+                        rows={3}
                         required
-                        placeholder="Tell us what you're looking for…" 
-                        className="w-full resize-none rounded-xl border border-(--border) bg-(--background) px-4 py-3 text-sm outline-none transition focus:border-(--coral) focus:ring-2 focus:ring-(--coral)/30" 
+                        placeholder="Tell us what you're looking for…"
+                        className="w-full resize-none rounded-xl border border-(--border) bg-(--background) px-4 py-3 text-sm outline-none transition focus:border-(--coral) focus:ring-2 focus:ring-(--coral)/30"
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       />
                     </div>
@@ -159,7 +185,7 @@ const Contactpage = () => {
     </main>
   )
 }
-function Field({ label, name, type = "text", placeholder, onChange }) {
+function Field({ label, name, type = "text", value, placeholder, onChange }) {
   return (
     <div>
       <label htmlFor={name} className="mb-1.5 block text-xs font-medium text-foreground/70">{label}</label>
@@ -168,6 +194,7 @@ function Field({ label, name, type = "text", placeholder, onChange }) {
         name={name}
         type={type}
         required
+        value={value}
         placeholder={placeholder}
         onChange={onChange}
         className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition focus:border-coral focus:ring-2 focus:ring-coral/30"
