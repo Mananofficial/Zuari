@@ -3,6 +3,7 @@ import Homepage from "./pages/homepage";
 import Solutionpage from "./pages/Solutionpage";
 import Contactpage from "./pages/Contactpage";
 import Aboutpage from "./pages/Aboutpage";
+import Privacypage from "./pages/Privacypage"
 
 export const router = createBrowserRouter([
     {
@@ -20,5 +21,9 @@ export const router = createBrowserRouter([
     {
         path:"/about",
         element:<Aboutpage/>
+    },
+    {
+        path:"/privacy",
+        element:<Privacypage/>
     }
 ]) 
