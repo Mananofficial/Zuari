@@ -5,9 +5,11 @@ import logo from "../assets/ZuariLogo.png";
 
 
 const nav = [
+  { to: "/about",     label: "About Us" },
   { to: "/solutions", label: "Solutions" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "",           label: "Industries"},
+  { to: "/contact",   label: "Contact Us" },
+  { to: "",           label:"Careers"}
 ];
 
 export function Navbar() {
@@ -61,7 +63,7 @@ export function Navbar() {
             to="/contact"
             className="inline-flex items-center justify-center rounded-full bg-(--primary) px-5 py-2.5 text-sm font-semibold text-(--primary-foreground) shadow-soft transition hover:-translate-y-0.5 hover:bg-(--foreground)"
           >
-            Get a quote
+            Get in Touch
           </Link>
         </div>
 
@@ -92,7 +94,7 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-full bg-(--primary) px-4 py-2.5 text-center text-sm font-semibold text-(--primary-foreground) transition hover:bg-(--foreground)"
             >
-              Get a quote
+              Get in Touch
             </Link>
           </nav>
         </div>
