@@ -111,6 +111,7 @@ const Aboutpage = () => {
         </div>
         ))}
       </div>
+      
       </div>
 
         <div className="mt-20 flex flex-wrap items-center justify-between gap-4 rounded-4xl bg-grad-warm p-10 text-(--cream) md:p-14">

@@ -91,12 +91,12 @@ export const Contactpage = () => {
 
             <div className="mt-10 space-y-4">
               {[
-                { i: Mail, l: "Email", v: "hello@zuariinsurance.com" },
-                { i: Phone, l: "Phone", v: "+91 80 4000 0000" },
+                { i: Mail, l: "Email", v: "hello@zuariinsurance.in" },
+                { i: Phone, l: "Phone", v: "011-45494500" },
                 {
                   i: MapPin,
                   l: "Offices",
-                  v: "Bangalore · Mumbai · Delhi · Hyderabad",
+                  v: "A-32, First Floor, Mohan Cooperative Industrial Estate Mathura Road, Badarpur, New Delhi-110044",
                 },
               ].map((c) => {
                 const Icon = c.i;
@@ -194,6 +194,11 @@ export const Contactpage = () => {
                       disabled={loading}
                       resetSignal={captchaResetKey}
                     />
+                    {/* <div>
+                    <p>By continuing, you agree to Zuari Insuranc
+                    <Link to="">Terms of Use </Link> and <Link to="/privacy" >Privacy Notice</Link>
+                    </p>
+                    </div> */}
 
                     <button disabled={loading || !captchaVerified} className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-(--primary) px-6 py-3.5 text-sm font-semibold text-(--primary-foreground) shadow-soft transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70">
                       Send request

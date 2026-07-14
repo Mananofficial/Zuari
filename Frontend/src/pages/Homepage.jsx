@@ -21,6 +21,7 @@ import { Navbar } from "../components/Navbar";
 import { useReveal } from "../hooks/useReveal";
 import Footer from "../components/Footer";
 
+
 function RevealItem({ children, className = "", delay = 0, offset = 40 }) {
   const { ref, visible } = useReveal();
 
@@ -51,14 +52,21 @@ const Homepage = () => {
   ];
 
   const logos = [
-    "ACME",
-    "Northwind",
-    "Vertex",
-    "Lumina",
-    "Kite & Co",
-    "Meridian",
-    "Halcyon",
-    "Tessera",
+    "Zuari Idustries",
+    "Zuari Finserv Limited",
+    "Zuari Management Services",
+    "Zuari Agro Chemical",
+    "Paradeep Phosphates",
+    "Zuari Farmhub",
+    "Zuari Envien Bioenergy",
+    "Zuari Infraworld India",
+    "Zuari Furniture Limited",
+    "Texmaco Infrastructure & Holdings",
+    "Simon India",
+    "Texmaco Rail & Engineering",
+    "Zuari IAV Private Limited",
+    "Zuari International ",
+    "Lionel India",
   ];
   const marqueeItems = Array(6).fill(logos).flat();
 
