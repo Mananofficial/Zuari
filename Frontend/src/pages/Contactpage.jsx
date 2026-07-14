@@ -6,6 +6,7 @@ import { useContact } from '../hooks/useContact';
 import Footer from '../components/Footer';
 import { toast, Toaster } from 'react-hot-toast';
 import Loading from '../components/Loading';
+import SliderCaptcha from '../components/SliderCaptcha';
 
 export const Contactpage = () => {
   const [searchParams] = useSearchParams();
@@ -17,6 +18,8 @@ export const Contactpage = () => {
     phoneNo: "",
     message: "",
   })
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaResetKey, setCaptchaResetKey] = useState(0);
 
   useEffect(() => {
     const emailFromHomepage = searchParams.get("email") || "";
@@ -27,20 +30,34 @@ export const Contactpage = () => {
   }, [searchParams]);
 
   
+  const resetCaptcha = () => {
+    setCaptchaVerified(false);
+    setCaptchaResetKey((k) => k + 1);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!captchaVerified) {
+      toast.error("Please slide to verify you're human");
+      return;
+    }
+
     const response = await handleContactSave(formData);
 
     if (response?.errors?.errors?.[0]) {
       toast.error(response.errors?.errors[0].msg);
+      resetCaptcha();
       return;
     }
 
     if (response.success) {
       toast.success("Contact saved successfully");
       setSent(true);
+      resetCaptcha();
     } else {
       toast.error("Error saving contact:");
+      resetCaptcha();
     }
   }
   
@@ -110,6 +127,7 @@ export const Contactpage = () => {
 
             <form
               onSubmit={handleSubmit}
+              onInvalid={resetCaptcha}
               className={`rounded-4xl border border-(--border)/60 bg-(--card) p-8 shadow-soft md:p-10 ${loading ? "pointer-events-none opacity-60" : ""}`}
             >
               {sent ? (
@@ -161,7 +179,7 @@ export const Contactpage = () => {
                     />
 
                     <div>
-                      <label className="mb-1.5 block text-xs font-medium text-(--foreground)/70">Message (optional)</label>
+                      <label className="mb-1.5 block text-xs font-medium text-(--foreground)/70">Message</label>
                       <textarea
                         rows={3}
                         required
@@ -171,7 +189,13 @@ export const Contactpage = () => {
                       />
                     </div>
 
-                    <button disabled={loading} className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-(--primary) px-6 py-3.5 text-sm font-semibold text-(--primary-foreground) shadow-soft transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70">
+                    <SliderCaptcha
+                      onVerify={setCaptchaVerified}
+                      disabled={loading}
+                      resetSignal={captchaResetKey}
+                    />
+
+                    <button disabled={loading || !captchaVerified} className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-(--primary) px-6 py-3.5 text-sm font-semibold text-(--primary-foreground) shadow-soft transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70">
                       Send request
                       <Send className="h-4 w-4 transition group-hover:translate-x-1" />
                     </button>
