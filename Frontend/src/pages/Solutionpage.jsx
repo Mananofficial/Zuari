@@ -102,8 +102,7 @@ const Solutionpage = () => {
         <div className="relative overflow-hidden rounded-4xl bg-grad-cool p-12 md:p-20 )">
           <div className="pointer-events-none absolute -top-24 right-10 h-72 w-72 rounded-full bg-coral opacity-30 blur-3xl animate-blob" />
           <div className="relative max-w-2xl text-(--cream)">
-            <span className="rounded-full bg-(--cream)/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider">Solutions</span>
-            <h1 className="mt-4 font-display text-5xl md:text-6xl">Insurance for every corner of your company.</h1>
+            <h1 className="mt-4 font-display text-5xl md:text-6xl">Your Business Our Commitment.</h1>
             <p className="mt-4 text-(--white)/90">Pick a starting point below, or let us design an integrated program that covers all of it under one roof.</p>
           </div>
         </div>
@@ -136,10 +135,9 @@ const Solutionpage = () => {
           })}
         </div>
 
-        <div className="mt-16 rounded-4xl bg-(--primary) p-10 text-center text-(--primary-foreground) md:p-16">
-          <h2 className="font-display text-3xl md:text-4xl">Not sure where to start?</h2>
-          <p className="mx-auto mt-3 max-w-xl text-(--primary-foreground)/80">Tell us about your team and we'll suggest the right mix — usually in a single call.</p>
-          <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-(--cream) px-6 py-3 text-sm font-semibold text-(--foreground) transition hover:-translate-y-0.5">
+        <div className="mt-10  text-center  ">
+          
+          <Link to="/contact" className="mt-6 inline-flex items-center gap-2 rounded-full bg-(--foreground) px-6 py-3 text-sm font-semibold text-(--cream) transition hover:-translate-y-0.5">
             Book a call <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

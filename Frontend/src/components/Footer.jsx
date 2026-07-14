@@ -21,9 +21,11 @@ const Footer = () => {
                     <div>
                         <h4 className="text-sm font-semibold">Company</h4>
                         <ul className="mt-4 space-y-2 text-sm text-(--muted-foreground)">
-                            <li><Link to="/about" className="hover:text-(--foreground)">About</Link></li>
-                            <li><Link to="/solutions" className="hover:text-(--foreground)">Solutions</Link></li>
-                            <li><Link to="/contact" className="hover:text-(--foreground)">Contact</Link></li>
+                            <li><Link to="" className="hover:text-(--foreground)">FAQs</Link></li>
+                            <li><Link to="" className="hover:text-(--foreground)">Newsletters</Link></li>
+                            <li><Link to="" className="hover:text-(--foreground)">Testimonials</Link></li>
+                            <li><Link to="" className="hover:text-(--foreground)">Apps</Link></li>
+                            <li><Link to="" className="hover:text-(--foreground)">Privacy Notice</Link></li>
                         </ul>
                     </div>
                     <div>
