@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router';
 import { Navbar } from '../components/Navbar';
 import heroImg from "../assets/heroImg.png";
@@ -22,6 +22,11 @@ const leadership = [
 ];
 
 const Aboutpage = () => {
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <main>
       <Navbar />
@@ -74,42 +79,42 @@ const Aboutpage = () => {
               </div>
             ))}
           </div>
-          </div>
-          <div className="mt-24">
+        </div>
+        <div className="mt-24">
           <div className="text-center">
-          <h2 className="mt-3 font-display text-4xl md:text-5xl">
-            Meet Our Leaders
-          </h2>
+            <h2 className="mt-3 font-display text-4xl md:text-5xl">
+              Meet Our Leaders
+            </h2>
           </div>
 
           <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {leadership.map((person, index) => (
-          <div
-          key={person.name}
-          className="flex items-center gap-6 rounded-4xl border border-(--border)/60 bg-(--card) p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-xl"
-          style={{
-          animation: `reveal-up 0.7s ${index * 150}ms both`,
-          }}>
-          <img
-          src={person.image}
-          alt={person.name}
-          className="h-52 w-52 rounded-3xl object-cover flex-shrink-0"
-          />
+            {leadership.map((person, index) => (
+              <div
+                key={person.name}
+                className="flex items-center gap-6 rounded-4xl border border-(--border)/60 bg-(--card) p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-xl"
+                style={{
+                  animation: `reveal-up 0.7s ${index * 150}ms both`,
+                }}>
+                <img
+                  src={person.image}
+                  alt={person.name}
+                  className="h-52 w-52 rounded-3xl object-cover flex-shrink-0"
+                />
 
-          <div>
-          <h3 className="font-display text-3xl">
-            {person.name}
-          </h3>
+                <div>
+                  <h3 className="font-display text-3xl">
+                    {person.name}
+                  </h3>
 
-          <p className="mt-2 text-xl italic text-(--coral)">
-            {person.role}
-          </p>
+                  <p className="mt-2 text-xl italic text-(--coral)">
+                    {person.role}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
-        </div>
-        ))}
-      </div>
-      
-      </div>
 
         <div className="mt-20 flex flex-wrap items-center justify-between gap-4 rounded-4xl bg-grad-warm p-10 text-(--cream) md:p-14">
           <h3 className="max-w-xl font-display text-3xl md:text-4xl">Want to work with us ?</h3>
@@ -118,7 +123,7 @@ const Aboutpage = () => {
           </Link>
         </div>
       </div>
-        <Footer />
+      <Footer />
 
     </main>
   )

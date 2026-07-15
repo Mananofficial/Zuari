@@ -27,9 +27,12 @@ export const Contactpage = () => {
     if (emailFromHomepage) {
       setFormData((current) => ({ ...current, email: emailFromHomepage }));
     }
+
+    { window.scrollTo({ top: 0, behavior: "smooth" }) }
+
   }, [searchParams]);
 
-  
+
   const resetCaptcha = () => {
     setCaptchaVerified(false);
     setCaptchaResetKey((k) => k + 1);
@@ -60,7 +63,7 @@ export const Contactpage = () => {
       resetCaptcha();
     }
   }
-  
+
   return (
     <main className="relative">
       <Toaster
@@ -192,7 +195,7 @@ export const Contactpage = () => {
                     <div className="text-xs text-(--muted-foreground)">
                       By continuing, you agree to Zuari Insurance Brokers Limited <a href="/" className="underline">Terms of Use</a> and <a href="/privacy" className="underline">Privacy Notice</a>.
                     </div>
-                  
+
 
                     <SliderCaptcha
                       onVerify={setCaptchaVerified}

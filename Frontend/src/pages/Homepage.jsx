@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router";
 import {
   ArrowRight,
@@ -61,6 +61,10 @@ const Homepage = () => {
     { n: 24, s: "h", label: "Avg. claim TAT" },
   ];
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const logos = [
     {
       name: "Zuari Industries",
@@ -88,7 +92,7 @@ const Homepage = () => {
     },
     {
       name: "Zuari Envien Bioenergy",
-      url:""
+      url: ""
     },
     {
       name: "Zuari Infraworld India",
@@ -96,15 +100,15 @@ const Homepage = () => {
     },
     {
       name: "Zuari Furniture Limited",
-      url:""
+      url: ""
     },
     {
       name: "Texmaco Infrastructure & Holdings",
-      url:""
+      url: ""
     },
     {
       name: "Simon India",
-      url:""
+      url: ""
     },
     {
       name: "Texmaco Rail & Engineering",
@@ -112,18 +116,18 @@ const Homepage = () => {
     },
     {
       name: "Zuari IAV Private Limited",
-      url:""
+      url: ""
     },
     {
       name: "Zuari International",
-      url:""
+      url: ""
     },
     {
       name: "Lionel India",
       url: logo_Lionel_India_Ltd
     },
     {
-      name:"Adventz Group",
+      name: "Adventz Group",
       url: logo2
     }
   ];
@@ -230,7 +234,7 @@ const Homepage = () => {
   return (
     <div>
       <Navbar />
-      
+
       <section className="relative overflow-hidden">
         {/* Floating blobs */}
         <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 bg-grad-warm opacity-30 blur-3xl animate-blob" />
@@ -440,7 +444,7 @@ const Homepage = () => {
                   loading="lazy"
                   width={1000}
                   height={1200}
-                  className="h-[80vh] w-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="h-full md:h-[80vh] w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
             </div>

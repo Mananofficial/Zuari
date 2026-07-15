@@ -1,114 +1,50 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router';
-import { Stethoscope, Umbrella, Users, Building2, Heart, Plane, ShieldCheck, Briefcase, ArrowRight, Check } from "lucide-react";
+import { Stethoscope, Umbrella, Users, Building2, Heart, ShieldCheck, Briefcase, ArrowRight, Check, HardHat, Boxes, Scale } from "lucide-react";
 import { Navbar } from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Solutionpage = () => {
-  const solutions = [
-    {
-      icon: Stethoscope,
-      title: "Group Health Insurance",
-      desc: "Comprehensive medical cover for employees and dependents.",
-      features: [
-        "Cashless at 10,000+ hospitals",
-        "Maternity & OPD included",
-        "Mental wellness benefits",
-      ],
-      color: "bg-(--coral)/15 text-(--coral)",
-    },
-    {
-      icon: Umbrella,
-      title: "Group Term Life",
-      desc: "Financial protection for every employee's family.",
-      features: [
-        "Up to ₹5 Cr sum assured",
-        "No medicals required",
-        "Instant onboarding",
-      ],
-      color: "bg-(--teal)/15 text-(--teal)",
-    },
-    {
-      icon: Users,
-      title: "Personal Accident",
-      desc: "Worldwide accident cover with 24/7 support.",
-      features: [
-        "Global coverage",
-        "Permanent disability payouts",
-        "Family transportation benefit",
-      ],
-      color: "bg-(--sun)/40 text-(--foreground)",
-    },
-    {
-      icon: Building2,
-      title: "Business Property",
-      desc: "Cover for offices, equipment, and inventory.",
-      features: [
-        "Fire & allied perils",
-        "Machinery breakdown",
-        "Business interruption",
-      ],
-      color: "bg-(--primary)/10 text-(--primary)",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Cyber Liability",
-      desc: "Protection against ransomware, breaches, and lawsuits.",
-      features: [
-        "Incident response team",
-        "Ransom & extortion cover",
-        "Regulatory fines",
-      ],
-      color: "bg-(--coral)/15 text-(--coral)",
-    },
-    {
-      icon: Briefcase,
-      title: "Directors & Officers",
-      desc: "Personal liability cover for founders and executives.",
-      features: [
-        "Investor-mandated cover",
-        "Legal defense costs",
-        "Employment practices",
-      ],
-      color: "bg-(--teal)/15 text-(--teal)",
-    },
-    {
-      icon: Plane,
-      title: "Business Travel",
-      desc: "Insurance for teams traveling for work — anywhere.",
-      features: [
-        "Trip cancellation",
-        "Medical evacuation",
-        "Lost baggage",
-      ],
-      color: "bg-(--sun)/40 text-(--foreground)",
-    },
-    {
-      icon: Heart,
-      title: "Wellness Programs",
-      desc: "Preventive health for lower claims and happier teams.",
-      features: [
-        "Annual health checks",
-        "Fitness challenges",
-        "Nutritionist access",
-      ],
-      color: "bg-(--primary)/10 text-(--primary)",
-    },
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  const teamSolutions = [
+    { icon: Heart, title: "Employee Wellness Solutions", desc: "Preventive health programs that keep teams thriving.", features: ["Annual health checks", "Mental wellness", "Fitness challenges"], color: "bg-(--coral)/15 text-(--coral)" },
+    { icon: Stethoscope, title: "Group Health Insurance", desc: "Cashless medical cover for employees and dependents.", features: ["10,000+ hospitals", "Maternity & OPD", "Day-one coverage"], color: "bg-(--teal)/15 text-(--teal)" },
+    { icon: Umbrella, title: "Group Term Life Insurance", desc: "Financial protection for every employee's family.", features: ["Up to ₹5 Cr sum", "No medicals", "Instant onboarding"], color: "bg-(--sun)/40 text-(--foreground)" },
+    { icon: Users, title: "Group Personal Accident Cover", desc: "Worldwide accident protection with 24/7 support.", features: ["Global coverage", "Disability payouts", "Family benefit"], color: "bg-(--primary)/10 text-(--primary)" },
   ];
+
+  const businessSolutions = [
+    { icon: ShieldCheck, title: "Cyber Insurance", desc: "Defense against ransomware, breaches and lawsuits.", features: ["Incident response", "Ransom cover", "Regulatory fines"], color: "bg-(--coral)/15 text-(--coral)" },
+    { icon: Briefcase, title: "Directors' & Officers' Insurance", desc: "Personal liability cover for founders and executives.", features: ["Investor mandated", "Legal defense", "EPL cover"], color: "bg-(--teal)/15 text-(--teal)" },
+    { icon: Scale, title: "Commercial General Liability", desc: "Third-party bodily injury and property damage cover.", features: ["Premises liability", "Product liability", "Legal costs"], color: "bg-(--sun)/40 text-(--foreground)" },
+    { icon: Boxes, title: "Asset Insurance", desc: "Cover for offices, equipment, and inventory.", features: ["Fire & perils", "Machinery breakdown", "Business interruption"], color: "bg-(--primary)/10 text-(--primary)" },
+    { icon: HardHat, title: "Workmen Compensation Policy", desc: "Statutory cover for workplace injuries and claims.", features: ["Statutory compliance", "Medical expenses", "Disability benefit"], color: "bg-(--coral)/15 text-(--coral)" },
+    { icon: Building2, title: "Business Property", desc: "End-to-end protection for your physical premises.", features: ["Building cover", "Contents cover", "Rent loss"], color: "bg-(--teal)/15 text-(--teal)" },
+  ];
+
   return (
     <main>
       <Navbar />
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-24">
         <div className="relative overflow-hidden rounded-4xl bg-grad-cool p-12 md:p-20 )">
           <div className="pointer-events-none absolute -top-24 right-10 h-72 w-72 rounded-full bg-coral opacity-30 blur-3xl animate-blob" />
-          <div className="relative max-w-2xl text-(--cream)">
-            <h1 className="mt-4 font-display text-5xl md:text-6xl">Your Business Our Commitment.</h1>
-            <p className="mt-4 text-(--white)/90">Pick a starting point below, or let us design an integrated program that covers all of it under one roof.</p>
+          <div className="relative text-(--cream) w-full">
+            <h1 className="mt-4 font-display text-5xl md:text-6xl text-center w-full">Your Business Our Commitment.</h1>
           </div>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {solutions.map((s, i) => {
+        <section className="mt-16 mx-auto max-w-sm px-6 py-10">
+          <div className="rounded-4xl bg-(--primary) py-6 px-2  text-(--primary-foreground)">
+            <h2 className="text-4xl text-center">For Your Team</h2>
+          </div>
+        </section>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {teamSolutions.map((s, i) => {
             const Icon = s.icon;
             return (
               <div
@@ -122,31 +58,23 @@ const Solutionpage = () => {
                 </span>
                 <h3 className="mt-5 font-display text-xl font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                <ul className="mt-4 space-y-2">
-                  {s.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-(--coral)" strokeWidth={3} />
-                      <span className="text-(--foreground)/80">{f}</span>
-                    </li>
-                  ))}
-                </ul>
+
               </div>
             );
           })}
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-24">
-        <div className="relative overflow-hidden rounded-4xl bg-grad-cool p-12 md:p-20 )">
-          <div className="pointer-events-none absolute -top-24 right-10 h-72 w-72 rounded-full bg-coral opacity-30 blur-3xl animate-blob" />
-          <div className="relative max-w-2xl text-(--cream)">
-            <h1 className="mt-4 font-display text-5xl md:text-6xl">Your Business Our Commitment.</h1>
-            <p className="mt-4 text-(--white)/90">Pick a starting point below, or let us design an integrated program that covers all of it under one roof.</p>
-          </div>
-        </div>
+      <div className="mx-auto max-w-7xl px-6">
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {solutions.map((s, i) => {
+        <section className=" mx-auto max-w-sm px-6 py-10">
+          <div className="rounded-4xl bg-(--primary) py-6 px-2  text-(--primary-foreground)">
+            <h2 className="text-4xl text-center">For Your Business</h2>
+          </div>
+        </section>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {businessSolutions.map((s, i) => {
             const Icon = s.icon;
             return (
               <div
