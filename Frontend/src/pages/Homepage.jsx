@@ -444,7 +444,7 @@ const Homepage = () => {
                   loading="lazy"
                   width={1000}
                   height={1200}
-                  className="h-full md:h-[80vh] w-full object-cover transition-transform duration-700 hover:scale-105"
+                  className="h-full md:h-[80vh] md:max-h-175 w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
             </div>
