@@ -68,9 +68,10 @@ const Footer = () => {
                             <li><Link to="" className="hover:text-(--foreground)">Testimonials</Link></li>
                             <li><Link to="" className="hover:text-(--foreground)">Apps</Link></li>
                             <li><Link to="/privacy" className="hover:text-(--foreground)">Privacy Notice</Link></li>
-                            <li><Link to="" className="hover:text-(--foreground)">FAQs</Link></li>
+                            <li><Link to="/faqs" className="hover:text-(--foreground)">FAQs</Link></li>
+                            <li><Link to="" className="hover:text-(--foreground)">Grievance Redressal</Link></li>
                         </ul>
-                    </div>
+                    </div> 
                     <div>
                         <h4 className="text-sm font-semibold">Get in touch</h4>
                         <ul className="mt-2 space-y-2 text-sm text-(--muted-foreground) mb-4">
@@ -92,7 +93,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-(--border)/60 pt-6 md:flex-row md:items-center">
-                    <p className="text-xs text-(--muted-foreground)">© {new Date().getFullYear()} Zuari Insurance Brokers Limited. IRDAI licensed. All rights reserved.</p>
+                    <p className="text-xs text-(--muted-foreground)">© {new Date().getFullYear()} Insurance products are offered and serviced by Zuari Insurance Brokers Limited | CIN U66010HR2003PLC137044 | IRDAI Broking License Registration Code: , Certificate No. 318, License category- Direct Broker (Life & General), License validity till 12-12-2026.</p>
                 </div>
             </div>
         </footer>

@@ -133,28 +133,7 @@ const Careerpage = () => {
                             </div>
                         </div>
 
-                        {/* Perks */}
-                        <div className="mt-16 grid gap-4 sm:grid-cols-3">
-                            {[
-                                { i: Heart, t: "Care that shows up", d: "Best-in-class health cover for you and your family." },
-                                { i: Rocket, t: "Real ownership", d: "Small teams, big scope, decisions that ship." },
-                                { i: Users, t: "Humans first", d: "Kindness and craft aren't at odds — they're the point." },
-                            ].map((p) => {
-                                const Icon = p.i;
-                                return (
-                                    <div
-                                        key={p.t}
-                                        className="group rounded-2xl border border-(--border/60 bg-(--card) p-6 transition hover:-translate-y-1 hover:shadow-soft"
-                                    >
-                                        <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-(--coral)/15 text-(--coral) transition group-hover:scale-110">
-                                            <Icon className="h-5 w-5" />
-                                        </span>
-                                        <h3 className="mt-4 font-semibold">{p.t}</h3>
-                                        <p className="mt-1 text-sm text-(--muted-foreground)">{p.d}</p>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        
                     </div>
                 </section>
 
@@ -164,10 +143,13 @@ const Careerpage = () => {
                         <div>
                             <span className="text-sm font-semibold uppercase tracking-wider text-(--coral)">Open roles</span>
                             <h2 className="mt-2 font-display text-4xl md:text-5xl">Find your seat.</h2>
+                            <p className="mt-6 max-w-2xl text-lg text-(--muted-foreground)">
+                                Current openings
+                            </p>
                         </div>
-                        <p className="text-sm text-(--muted-foreground)">
+                        {/* <p className="text-sm text-(--muted-foreground)">
                             {filtered.length} role{filtered.length === 1 ? "" : "s"} matching your filters
-                        </p>
+                        </p> */}
                     </div>
 
                     {/* Filters */}
@@ -181,7 +163,7 @@ const Careerpage = () => {
                                 className="w-full rounded-xl border border-(--border) bg-(--background) pl-11 pr-4 py-3 text-sm outline-none transition focus:border-(--coral) focus:ring-2 focus:ring-(--coral)/30"
                             />
                         </label>
-                        <Select value={team} onChange={setTeam} options={TEAMS} label="Team" />
+                        {/* <Select value={team} onChange={setTeam} options={TEAMS} label="Team" /> */}
                     </div>
 
                     {/* Job list */}
@@ -272,8 +254,8 @@ const Careerpage = () => {
 
 function Select({ value, onChange, options, label }) {
     return (
-        <label className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-sm">
-            <span className="text-xs uppercase tracking-wider text-muted-foreground">{label}</span>
+        <label className="flex items-center gap-2 rounded-xl border border-border bg-(--background) px-3 py-2 text-sm">
+            <span className="text-xs uppercase tracking-wider text-(--muted-foreground)">{label}</span>
             <select
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
