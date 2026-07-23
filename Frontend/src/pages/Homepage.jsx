@@ -248,7 +248,7 @@ const Homepage = () => {
           <div className="animate-reveal">
             <span className="inline-flex items-center gap-2 rounded-full border border-(--border)/70 bg-(--background)/70 px-3 py-1 text-xs font-medium backdrop-blur">
               <Sparkles className="h-3.5 w-3.5 text-(--coral)" />
-              IRDAI licensed insurance brokerage
+              IRDAI licensed insurance brokers
             </span>
             <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight md:text-7xl">
               Insurance your{" "}
@@ -257,9 +257,8 @@ const Homepage = () => {
               <span className="italic font-normal">actually</span> deserves.
             </h1>
             <p className="mt-6 max-w-lg text-lg text-(--muted-foreground)">
-              Zuari Insurance Brokers Limited designs group health, life and
-              business insurance for growing companies — with human advisors,
-              faster claims, and a delightful dashboard for every employee.
+              Zuari Insurance Brokers Limited provides health, life and
+              business insurance.
             </p>
 
             <form
@@ -298,38 +297,7 @@ const Homepage = () => {
               <div className="absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent" />
             </div>
 
-            {/* Floating cards */}
-            <div className="absolute -left-4 top-10 flex items-center gap-3 rounded-2xl bg-(--background) px-4 py-3 shadow-soft animate-float">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-(--coral)/15 text-(--coral)">
-                <Heart className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-xs text-(--muted-foreground)">
-                  Claim settled
-                </p>
-                <p className="text-sm font-semibold">₹2.4 L · 6h</p>
-              </div>
-            </div>
-
-            <div className="absolute -right-6 bottom-16 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-soft animate-float-slow">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-(--teal)/15 text-(--teal)">
-                <Shield className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-xs text-(--muted-foreground)">
-                  Policy active
-                </p>
-                <p className="text-sm font-semibold">128 lives covered</p>
-              </div>
-            </div>
-
-            <div
-              className="absolute bottom-2 left-6 rounded-2xl bg-(--primary) px-4 py-3 text-(--primary-foreground) shadow-soft animate-float"
-              style={{ animationDelay: "-2s" }}
-            >
-              <p className="text-xs opacity-70">NPS</p>
-              <p className="font-display text-2xl font-semibold">72</p>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -389,7 +357,7 @@ const Homepage = () => {
             </h2>
           </div>
           <p className="max-w-md text-(--muted-foreground)">
-            Whether you're a 20-person startup or a 5,000-person enterprise, we
+            Whether you're a 15-person startup or a 5,000-person enterprise, we
             shape a program around your people, industry, and budget.
           </p>
         </div>

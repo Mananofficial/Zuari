@@ -20,6 +20,7 @@ export const Contactpage = () => {
   })
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const [captchaResetKey, setCaptchaResetKey] = useState(0);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   useEffect(() => {
     const emailFromHomepage = searchParams.get("email") || "";
@@ -41,11 +42,15 @@ export const Contactpage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!agreedToTerms) {
+      toast.error("Please agree to the Terms of Use and Privacy Notice");
+      return;
+    }
+
     if (!captchaVerified) {
       toast.error("Please slide to verify you're human");
       return;
     }
-
     const response = await handleContactSave(formData);
 
     if (response?.errors?.errors?.[0]) {
@@ -88,8 +93,7 @@ export const Contactpage = () => {
 
             <p className="mt-6 max-w-lg text-lg text-(--muted-foreground)">
               Fill in a few details and a Zuari Insurance Brokers Limited advisor will
-              reach out within one business day. Prefer email or a phone call? All
-              three work.
+                reach out.
             </p>
 
             <div className="mt-10 space-y-4">
@@ -144,8 +148,7 @@ export const Contactpage = () => {
                   </h3>
 
                   <p className="mt-2 max-w-sm text-(--muted-foreground)">
-                    A Zuari Insurance Brokers Limited advisor will reach out within
-                    one business day.
+                    A Zuari Insurance Brokers Limited advisor will reach out to you soon.
                   </p>
                 </div>
               ) : (
@@ -192,9 +195,17 @@ export const Contactpage = () => {
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       />
                     </div>
-                    <div className="text-xs text-(--muted-foreground)">
-                      By continuing, you agree to Zuari Insurance Brokers Limited <a href="/" className="underline">Terms of Use</a> and <a href="/privacy" className="underline">Privacy Notice</a>.
-                    </div>
+                    <label className="flex items-start gap-2.5 text-xs text-(--muted-foreground)">
+                      <input
+                        type="checkbox"
+                        checked={agreedToTerms}
+                        onChange={(e) => setAgreedToTerms(e.target.checked)}
+                        className="mt-0.5 h-4 w-4 shrink-0 rounded border-(--border) accent-(--coral)"
+                      />
+                      <span>
+                        By continuing, you agree to Zuari Insurance Brokers Limited <a href="/" className="underline">Terms of Use</a> and <a href="/privacy" className="underline">Privacy Notice</a>.
+                      </span>
+                    </label>
 
 
                     <SliderCaptcha
@@ -208,7 +219,7 @@ export const Contactpage = () => {
                     </p>
                     </div> */}
 
-                    <button disabled={loading || !captchaVerified} className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-(--primary) px-6 py-3.5 text-sm font-semibold text-(--primary-foreground) shadow-soft transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70">
+                    <button disabled={loading || !captchaVerified || !agreedToTerms} className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-(--primary) px-6 py-3.5 text-sm font-semibold text-(--primary-foreground) shadow-soft transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70">
                       Send request
                       <Send className="h-4 w-4 transition group-hover:translate-x-1" />
                     </button>
